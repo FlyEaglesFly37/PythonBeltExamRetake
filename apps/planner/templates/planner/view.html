@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>View Trip</title>
+    <style>
+        div {
+            margin-top: 15px;
+            margin-left: 250px;
+        }
+    </style>
+</head>
+<body>
+    {% for x in view %}
+    <h1>{{x.location}}</h1>
+    <p>Planned by: {{x.created_by.first_name}} {{x.created_by.last_name}}</p>
+    <p>Description: {{x.desc}}</p>
+    <p>Travel Date From: {{x.start}}</p>
+    <p>Travel Date To: {{x.end}}</p>
+    {% endfor %}
+    <h2>Other Users Joining the Trip:</h2>
+    {% for x in joined %}
+        <ul>
+            <li>{{x.first_name}} {{x.last_name}}</li>
+        </ul>
+    {% endfor %}  
+    <br>
+    <div class='bottom'><a href='/travels'>Go Back</a> | <a href='/logout'>Logout</a></div>
+</body>
+</html>
